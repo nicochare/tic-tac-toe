@@ -1,0 +1,128 @@
+@font-face {
+    font-family: regular;
+    src: url(./fonts/MYRIADPRO-REGULAR.OTF);
+}
+
+@font-face {
+    font-family: light;
+    src: url(./fonts/MyriadPro-Light.otf);
+}
+
+@font-face {
+    font-family: bold;
+    src: url(./fonts/MYRIADPRO-BOLD.OTF);
+}
+
+.cont {
+    background-color: #074a38;
+    height: max-content;
+    overflow: hidden;
+}
+
+.popup-turn {
+    padding: 2vh 5vh;
+    box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.22);
+    -webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.22);
+    -moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.22);
+}
+
+.w-maxcontent {
+    width: max-content;
+}
+
+.buttons-play {
+    background-color: #1F5C4B;
+    height: 23vh;
+    width: 14vh;
+    color: #000000;
+}
+
+.buttons-play:disabled {
+    background: #194f40;
+  }
+
+.buttons-start {
+    background-color: #1F5C4B;
+    height: auto;
+    padding: 0 5vw;
+}
+
+.buttons-restart {
+    background-color: #0077be;
+    height: auto;
+    padding: 0 1vh;
+    animation: flash 1300ms infinite;
+}
+
+@keyframes flash {
+    0% {
+      background-color: #0077be;
+      box-shadow: 0 0 3px #0077be;
+    }
+    50% {
+      background-color: #4c93cc;
+      box-shadow: 0 0 10px #4c93cc;
+    }
+    100% {
+      background-color: #0077be;
+      box-shadow: 0 0 3px #0077be;
+    }
+  }
+
+.tachado {
+    text-decoration: line-through;
+}
+
+.button-container {
+    padding-left: 15vw;
+    padding-right: 15vw;
+}
+
+.low-text-op {
+    color: rgba(0, 0, 0, 0) !important;
+}
+
+.invisible {
+    opacity: 0;
+}
+
+@media (max-width: 1100px) {
+    .button-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.m-0-5 {
+    margin: 0.125rem !important;
+}
+
+.mt-3-5 {
+    margin-top: 1.09rem !important;
+}
+
+button:hover {
+    background-color: #326355 !important;
+}
+
+
+body {
+    font-family: light;
+}
+
+
+.flip-up-container {
+    perspective: 1000px; /* Añade perspectiva para el efecto 3D */
+}
+
+.flip-up {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.flip-it-up {
+    transform: rotateX(180deg); /* Rota el elemento en el eje X hacia arriba */
+}
