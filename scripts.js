@@ -23,20 +23,12 @@ const closeModal1 = document.getElementById("closeModal1");
 const closeModal2 = document.getElementById("closeModal2");
 const restarter = document.getElementById("restarter");
 
-// Random facts
+// Random facts list
 const randomfacts = ['Tic Tac Toe is also known as "Noughts and Crosses" in the UK.',"The game is believed to have originated from ancient Egypt around 1300 BC.","The first known computer game version of Tic Tac Toe was created in 1952 by A.S. Douglas.","Tic Tac Toe is often used to teach basic programming and artificial intelligence concepts.","The game has only 255,168 unique board configurations.","If both players play perfectly, every game of Tic Tac Toe will end in a draw.","The game is considered a zero-sum game, meaning one player's gain is another's loss.","There are 8 possible winning lines in a standard 3x3 Tic Tac Toe grid.","The first player to move has a strategic advantage if they play optimally.","Tic Tac Toe can be expanded into larger grids, like 4x4 or 5x5, creating more complex strategies.","The game has been used in psychological studies to understand decision-making and strategic thinking.",'A variant of Tic Tac Toe called "3D Tic Tac Toe" is played on a 4x4x4 grid.',"Tic Tac Toe was one of the first games to be implemented on early electronic gaming devices.","In 2000, a human vs. computer Tic Tac Toe tournament was held, where the computer used perfect play.","The game is often used as a pedagogical tool in teaching children about planning and foresight.",'In the Roman Empire, a similar game called "Terni Lapilli" was played using pebbles.',"The optimal strategy for Tic Tac Toe was first documented in the early 20th century.","Some variations of Tic Tac Toe allow more than two players.","The game can be played with any marking tools, including pencils, coins, or even on the sand.","A perfect game of Tic Tac Toe always ends in a tie if both players are aware of the optimal strategy."]
 
 // Game starter
 function start() { 
-    b1.disabled = false;
-    b2.disabled = false;
-    b3.disabled = false;
-    b4.disabled = false;
-    b5.disabled = false;
-    b6.disabled = false;
-    b7.disabled = false;
-    b8.disabled = false;
-    b9.disabled = false;
+    disable_cards(false);
     starter.disabled = true;
     textstart.classList.toggle("tachado");
     b1.addEventListener("click", flip.bind(null, b1));
@@ -80,17 +72,22 @@ function whos_turn(counter) {
     }
 }
 
+// Updates the disabled attribute of every card button
+function disable_cards(status) {
+    b1.disabled = status;
+    b2.disabled = status;
+    b3.disabled = status;
+    b4.disabled = status;
+    b5.disabled = status;
+    b6.disabled = status;
+    b7.disabled = status;
+    b8.disabled = status;
+    b9.disabled = status;
+}
+
 // The game has finished
 function finish(winner) {
-    b1.disabled = true;
-    b2.disabled = true;
-    b3.disabled = true;
-    b4.disabled = true;
-    b5.disabled = true;
-    b6.disabled = true;
-    b7.disabled = true;
-    b8.disabled = true;
-    b9.disabled = true;
+    disable_cards(true);
     var n = randomNumber();
     if (winner == "Draw") {
         document.getElementById("staticBackdropLabel").textContent = winner + "!";
@@ -175,15 +172,7 @@ function restart_cards() {
         b7.textContent = "";
         b8.textContent = "";
         b9.textContent = "";
-        b1.disabled = false;
-        b2.disabled = false;
-        b3.disabled = false;
-        b4.disabled = false;
-        b5.disabled = false;
-        b6.disabled = false;
-        b7.disabled = false;
-        b8.disabled = false;
-        b9.disabled = false;
+        disable_cards(false);
     }, 200)
 }
 
