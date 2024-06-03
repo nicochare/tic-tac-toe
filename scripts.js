@@ -1,6 +1,10 @@
+// Random facts list
+var tttfacts = ["Tic Tac Toe is also known as 'Noughts and Crosses' in the UK.","The game is believed to have originated from ancient Egypt around 1300 BC.","The first known computer game version of Tic Tac Toe was created in 1952 by A.S. Douglas.","Tic Tac Toe is often used to teach basic programming and artificial intelligence concepts.","The game has only 255,168 unique board configurations.","If both players play perfectly, every game of Tic Tac Toe will end in a draw.","The game is considered a zero-sum game, meaning one player's gain is another's loss.","There are 8 possible winning lines in a standard 3x3 Tic Tac Toe grid.","The first player to move has a strategic advantage if they play optimally.","Tic Tac Toe can be expanded into larger grids, like 4x4 or 5x5, creating more complex strategies.","The game has been used in psychological studies to understand decision-making and strategic thinking.","A variant of Tic Tac Toe called '3D Tic Tac Toe' is played on a 4x4x4 grid.","Tic Tac Toe was one of the first games to be implemented on early electronic gaming devices.","In 2000, a human vs. computer Tic Tac Toe tournament was held, where the computer used perfect play.","The game is often used as a pedagogical tool in teaching children about planning and foresight.","In the Roman Empire, a similar game called 'Terni Lapilli' was played using pebbles.","The optimal strategy for Tic Tac Toe was first documented in the early 20th century.","Some variations of Tic Tac Toe allow more than two players.","The game can be played with any marking tools, including pencils, coins, or even on the sand.","A perfect game of Tic Tac Toe always ends in a tie if both players are aware of the optimal strategy.","The earliest known mention of Tic Tac Toe was in the 12th century.","The name 'Tic Tac Toe' is thought to be derived from the sound of the pieces being placed on the board.","Tic Tac Toe is a classic example of a solved game.","The game is known as 'X's and O's' in some countries.","A larger version of the game is called 'Gomoku,' played on a 15x15 grid.","Tic Tac Toe can be used to demonstrate game theory concepts.","The game was featured in the movie 'WarGames,' where a computer learns the futility of nuclear war.","In some versions, the board is larger, such as 5x5, and requires players to get four in a row to win.","The game is sometimes used to determine turn order in other games.","In Japan, a similar game is called 'Sanmoku-Narabe.'","A common strategy is to always start in the center of the board.","The game is often used in AI research to test algorithms."];
+
 var starter = document.getElementById("starter");
 var textstart = document.getElementById("text-start");
 var counter;
+
 
 // Playing buttons (1-9)
 var b1 = document.getElementById("button-1");
@@ -23,8 +27,6 @@ const closeModal1 = document.getElementById("closeModal1");
 const closeModal2 = document.getElementById("closeModal2");
 const restarter = document.getElementById("restarter");
 
-// Random facts list
-const randomfacts = ['Tic Tac Toe is also known as "Noughts and Crosses" in the UK.',"The game is believed to have originated from ancient Egypt around 1300 BC.","The first known computer game version of Tic Tac Toe was created in 1952 by A.S. Douglas.","Tic Tac Toe is often used to teach basic programming and artificial intelligence concepts.","The game has only 255,168 unique board configurations.","If both players play perfectly, every game of Tic Tac Toe will end in a draw.","The game is considered a zero-sum game, meaning one player's gain is another's loss.","There are 8 possible winning lines in a standard 3x3 Tic Tac Toe grid.","The first player to move has a strategic advantage if they play optimally.","Tic Tac Toe can be expanded into larger grids, like 4x4 or 5x5, creating more complex strategies.","The game has been used in psychological studies to understand decision-making and strategic thinking.",'A variant of Tic Tac Toe called "3D Tic Tac Toe" is played on a 4x4x4 grid.',"Tic Tac Toe was one of the first games to be implemented on early electronic gaming devices.","In 2000, a human vs. computer Tic Tac Toe tournament was held, where the computer used perfect play.","The game is often used as a pedagogical tool in teaching children about planning and foresight.",'In the Roman Empire, a similar game called "Terni Lapilli" was played using pebbles.',"The optimal strategy for Tic Tac Toe was first documented in the early 20th century.","Some variations of Tic Tac Toe allow more than two players.","The game can be played with any marking tools, including pencils, coins, or even on the sand.","A perfect game of Tic Tac Toe always ends in a tie if both players are aware of the optimal strategy."]
 
 // Game starter
 function start() { 
@@ -45,7 +47,7 @@ function start() {
 
 // get random number 1-20
 function randomNumber() {
-    return Math.floor(Math.random() * 20);
+    return Math.floor(Math.random() * tttfacts.length);
 }
 
 // enables the option to restart the game
@@ -94,7 +96,7 @@ function finish(winner) {
     } else {
         document.getElementById("staticBackdropLabel").textContent = winner + " wins!";
     }
-    rfmparagraph.textContent = randomfacts[n];
+    rfmparagraph.textContent = tttfacts[n];
     rfm.show();
     closeModal1.addEventListener("click", restart);
     closeModal2.addEventListener("click", restart);
@@ -193,8 +195,6 @@ function flip(el) {
     setTimeout(function() {
         el.classList.toggle("low-text-op");  
         results = havent_won();
-        console.log(whos_turn(counter));
-        console.log(results);
         if (!results[0] || counter >= 8) {
             if (results[0]) {
                 winner = "Draw";

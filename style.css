@@ -9,11 +9,6 @@
     src: url(./fonts/MyriadPro-Light.otf);
 }
 
-@font-face {
-    font-family: bold;
-    src: url(./fonts/MYRIADPRO-BOLD.OTF);
-}
-
 .cont {
     background-color: #074a38;
     height: max-content;
@@ -61,7 +56,7 @@
       background-color: #0077be;
       box-shadow: 0 0 3px #0077be;
     }
-  }
+}
 
 .tachado {
     text-decoration: line-through;
